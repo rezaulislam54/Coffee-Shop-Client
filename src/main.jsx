@@ -8,20 +8,21 @@ import AddCoffee from './pages/AddCoffee.jsx';
 
 const router = createBrowserRouter([
   {
-    path:"/",
-    element:<MainLayout></MainLayout>,
-    children:[
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    children: [
       {
-        path:"/",
+        path: "/",
         element: <Hompage></Hompage>,
+        loader: () => fetch("http://localhost:5000/coffees"),
       },
       {
-        path:"/add-coffe",
-        element:<AddCoffee></AddCoffee>,
-      }
-    ]
-  }
-])
+        path: "/add-coffe",
+        element: <AddCoffee></AddCoffee>,
+      },
+    ],
+  },
+]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

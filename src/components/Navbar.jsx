@@ -2,12 +2,30 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
 
-    const navlinks = <>
-        <NavLink><li><a>Home</a></li></NavLink>
-        <NavLink><li><a>Add Coffee</a></li></NavLink>
-        <NavLink><li><a>My Coffee</a></li></NavLink>
-        <NavLink><li><a>My Cart</a></li></NavLink>
-    </>
+    const navlinks = (
+      <>
+        <NavLink to={"/"}>
+          <li>
+            <a>Home</a>
+          </li>
+        </NavLink>
+        <NavLink to={"/add-coffe"}>
+          <li>
+            <a>Add Coffee</a>
+          </li>
+        </NavLink>
+        <NavLink>
+          <li>
+            <a>My Coffee</a>
+          </li>
+        </NavLink>
+        <NavLink>
+          <li>
+            <a>My Cart</a>
+          </li>
+        </NavLink>
+      </>
+    );
     return (
       <div className="navbar bg-base-100">
         <div className="navbar-start">

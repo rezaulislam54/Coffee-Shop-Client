@@ -1,4 +1,5 @@
 import Hero from "../components/Hero";
+import OurPopularProduct from "../components/OurPopularProduct";
 import Sponser from "../components/Sponser";
 
 const Hompage = () => {
@@ -6,6 +7,7 @@ const Hompage = () => {
     <div>
       <Hero></Hero>
       <Sponser></Sponser>
+      <OurPopularProduct></OurPopularProduct>
     </div>
   );
 };
