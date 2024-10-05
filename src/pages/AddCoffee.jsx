@@ -1,4 +1,5 @@
 import { BiSolidAlarmAdd } from "react-icons/bi";
+import Swal from "sweetalert2";
 // import { GoArrowLeft } from "react-icons/go";
 
 const AddCoffee = () => {
@@ -36,6 +37,14 @@ const AddCoffee = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Product Adeded Successfully!",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        }
       });
   };
 
