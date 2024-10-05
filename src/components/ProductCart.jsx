@@ -1,6 +1,5 @@
 const ProductCart = ({ coffee }) => {
-  const { name, quantity, supplier, category, details, taste, price, Photo } =
-    coffee;
+  const { name, quantity, supplier, price, Photo } = coffee;
   console.log(coffee);
 
   return (
