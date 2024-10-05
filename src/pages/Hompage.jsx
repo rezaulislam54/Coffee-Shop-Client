@@ -1,10 +1,13 @@
+import Hero from "../components/Hero";
+import Sponser from "../components/Sponser";
 
 const Hompage = () => {
-    return (
-        <div>
-            <h2>This is HomePage</h2>
-        </div>
-    );
+  return (
+    <div>
+      <Hero></Hero>
+      <Sponser></Sponser>
+    </div>
+  );
 };
 
 export default Hompage;
