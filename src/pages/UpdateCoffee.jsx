@@ -1,11 +1,13 @@
 import { BiSolidAlarmAdd } from "react-icons/bi";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 // import { GoArrowLeft } from "react-icons/go";
 
-const AddCoffee = () => {
-  const handleAddCoffee = (e) => {
-    e.preventDefault();
+const UpdateCoffee = () => {
+  const loadeddata = useLoaderData();
 
+  const handleUpdateCoffee = (e) => {
+    e.preventDefault();
     const name = e.target.name.value;
     const quantity = e.target.quantity.value;
     const supplier = e.target.supplier.value;
@@ -25,10 +27,9 @@ const AddCoffee = () => {
       price,
       Photo,
     };
-    // console.log(coffee);
 
-    fetch("http://localhost:5000/coffees", {
-      method: "POST",
+    fetch(`http://localhost:5000/coffees/${loadeddata._id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -36,11 +37,10 @@ const AddCoffee = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount) {
           Swal.fire({
             title: "Success!",
-            text: "Product Adeded Successfully!",
+            text: "Product Updated Successfully!",
             icon: "success",
             confirmButtonText: "Ok",
           });
@@ -57,12 +57,12 @@ const AddCoffee = () => {
             <BiSolidAlarmAdd />
           </span>
           <span className="dark:text-white">
-            <span className="text-[#FF497C]">Add</span>
+            <span className="text-[#FF497C]">Update</span>
             Your Product
           </span>
         </div>
         {/* form */}
-        <form onSubmit={handleAddCoffee}>
+        <form onSubmit={handleUpdateCoffee}>
           <div className="md:flex gap-8 ">
             <div className="flex-1">
               <label className="block mb-2 dark:text-white" htmlFor="name">
@@ -72,6 +72,7 @@ const AddCoffee = () => {
                 className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
                 type="text"
                 placeholder="Name"
+                defaultValue={loadeddata.name}
                 id="name"
                 name="name"
               />
@@ -86,6 +87,7 @@ const AddCoffee = () => {
                 className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
                 type="text"
                 placeholder="Enter coffee supplier"
+                defaultValue={loadeddata.supplier}
                 id="supplier"
                 name="supplier"
               />
@@ -100,6 +102,7 @@ const AddCoffee = () => {
                 className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
                 type="text"
                 placeholder="Enter coffee category"
+                defaultValue={loadeddata.category}
                 id="category"
                 name="category"
               />
@@ -113,6 +116,7 @@ const AddCoffee = () => {
                 className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
                 type="number"
                 placeholder="Enter coffee Price"
+                defaultValue={loadeddata.price}
                 id="price"
                 name="price"
               />
@@ -126,6 +130,7 @@ const AddCoffee = () => {
                 className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
                 type="number"
                 placeholder="Enter coffee Quantity "
+                defaultValue={loadeddata.quantity}
                 id="quantity"
                 name="quantity"
               />
@@ -136,6 +141,7 @@ const AddCoffee = () => {
                 className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
                 type="text"
                 placeholder="Enter coffee taste"
+                defaultValue={loadeddata.taste}
                 id="taste"
                 name="taste"
               />
@@ -150,6 +156,7 @@ const AddCoffee = () => {
                 className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
                 type="text"
                 placeholder="Enter coffee details"
+                defaultValue={loadeddata.details}
                 id="details"
                 name="details"
               />
@@ -163,8 +170,9 @@ const AddCoffee = () => {
                 className="w-full p-2 border rounded-md focus:outline-[#FF497C]"
                 type="text"
                 placeholder="Enter coffee Image"
+                defaultValue={loadeddata.Photo}
                 id="image"
-                name="image"
+                name="Photo"
               />
             </div>
           </div>
@@ -180,4 +188,4 @@ const AddCoffee = () => {
   );
 };
 
-export default AddCoffee;
+export default UpdateCoffee;

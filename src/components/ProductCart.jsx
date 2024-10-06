@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const ProductCart = ({ coffee }) => {
+const ProductCart = ({ coffee, setcoffees, coffees }) => {
   const { _id, name, quantity, supplier, price, Photo } = coffee;
 
   const handleProductDelete = (_id) => {
@@ -20,6 +21,8 @@ const ProductCart = ({ coffee }) => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
+            const remaining = coffees.filter((c) => c._id !== _id);
+            setcoffees(remaining);
             if (data.deleteCount > 0) {
               Swal.fire({
                 title: "Deleted!",
@@ -34,7 +37,7 @@ const ProductCart = ({ coffee }) => {
 
   return (
     <div className="bg-[#F5F4F1] p-8 shadow-lg rounded-lg border">
-      <div className="flex gap-10 items-center">
+      <div className="flex gap-5 items-center">
         <img className="size-48" src={Photo} />
         <div className="flex justify-between items-center w-full">
           <div>
@@ -45,7 +48,9 @@ const ProductCart = ({ coffee }) => {
           </div>
           <div className="join join-vertical space-y-3">
             <button className="btn join-item btn-primary">View</button>
-            <button className="btn join-item btn-secondary">Update</button>
+            <Link to={`/update/${_id}`}>
+              <button className="btn join-item btn-secondary">Update</button>
+            </Link>
             <button
               onClick={() => handleProductDelete(_id)}
               className="btn join-item btn-accent"

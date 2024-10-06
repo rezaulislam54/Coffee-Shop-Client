@@ -1,8 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import ProductCart from "./ProductCart";
+import { useState } from "react";
 
 const OurPopularProduct = () => {
-  const coffees = useLoaderData();
+  const loadedCoffees = useLoaderData();
+
+  const [coffees, setcoffees] = useState(loadedCoffees);
   return (
     <div className="my-24">
       <div className="text-center">
@@ -18,9 +21,14 @@ const OurPopularProduct = () => {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 container mx-auto mt-8 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto mt-8 gap-6">
         {coffees?.map((coffee) => (
-          <ProductCart key={coffee._id} coffee={coffee}></ProductCart>
+          <ProductCart
+            key={coffee._id}
+            setcoffees={setcoffees}
+            coffee={coffee}
+            coffees={coffees}
+          ></ProductCart>
         ))}
       </div>
     </div>

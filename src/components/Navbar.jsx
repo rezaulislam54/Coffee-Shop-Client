@@ -48,13 +48,14 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-md dropdown-content bg-white z-[4] mt-3 rounded w-32  shadow-xl"
             >
               {navlinks}
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">
-            <img className="h-14"
+            <img
+              className="h-14"
               src="https://res.cloudinary.com/dvp64j4a3/image/upload/v1728102065/images__10_-removebg-preview_jifmf0.png"
               alt=""
             />
@@ -79,7 +80,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[4] mt-3 w-52 p-2 shadow"
             >
               <li>
                 <a className="justify-between">

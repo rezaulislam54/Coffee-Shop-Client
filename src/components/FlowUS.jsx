@@ -5,7 +5,7 @@ const FlowUS = () => {
         <p>Follow Us Now</p>
         <h2 className="text-3xl font-medium my-3 ">Follow on Instagram</h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-8">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-8">
         <img src="https://res.cloudinary.com/dvp64j4a3/image/upload/v1728184713/Rectangle_9.png" />
         <img
           src="https://res.cloudinary.com/dvp64j4a3/image/upload/v1728184725/Rectangle_10.png"
