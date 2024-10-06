@@ -1,7 +1,7 @@
 const Sponser = () => {
   return (
     <div className="bg-[#ECEAE3]">
-      <div className="flex gap-5 p-6 justify-around">
+      <div className="flex gap-5 p-10 rounded-lg justify-around">
         <div className="bg-white shadow-lg p-3 rounded-lg space-y-2">
           <img
             src="https://res.cloudinary.com/dvp64j4a3/image/upload/v1728109201/1_sutxrv.png"

@@ -18,7 +18,7 @@ const OurPopularProduct = () => {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 container mx-auto mt-8 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 container mx-auto mt-8 gap-6">
         {coffees?.map((coffee) => (
           <ProductCart key={coffee._id} coffee={coffee}></ProductCart>
         ))}
