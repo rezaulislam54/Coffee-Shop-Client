@@ -7,6 +7,10 @@ import Hompage from './pages/Hompage.jsx';
 import AddCoffee from './pages/AddCoffee.jsx';
 import UpdateCoffee from "./pages/UpdateCoffee.jsx";
 import ViewDetails from "./pages/ViewDetails.jsx";
+import AuthContexProvider from "./provider/AuthContexProvider.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import RegisterPage from "./pages/RegisterPage.jsx";
+import PrivateRoutes from "./priveteRoutes/PrivateRoutes.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,11 +24,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-coffe",
-        element: <AddCoffee></AddCoffee>,
+        element: (
+          <PrivateRoutes>
+            <AddCoffee></AddCoffee>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/update/:id",
-        element: <UpdateCoffee></UpdateCoffee>,
+        element: (
+          <PrivateRoutes>
+            <UpdateCoffee></UpdateCoffee>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/coffees/${params.id}`),
       },
@@ -34,12 +46,22 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/coffees/${params.id}`),
       },
+      {
+        path: "/login",
+        element: <LoginPage></LoginPage>,
+      },
+      {
+        path: "/signup",
+        element: <RegisterPage></RegisterPage>,
+      },
     ],
   },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
-  </StrictMode>,
-)
+    <AuthContexProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthContexProvider>
+  </StrictMode>
+);

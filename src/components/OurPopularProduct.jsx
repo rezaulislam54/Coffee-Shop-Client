@@ -6,6 +6,8 @@ const OurPopularProduct = () => {
   const loadedCoffees = useLoaderData();
 
   const [coffees, setcoffees] = useState(loadedCoffees);
+  const [coffeelength, setcoffeelength] = useState(6);
+
   return (
     <div className="my-24">
       <div className="text-center">
@@ -25,7 +27,7 @@ const OurPopularProduct = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 container mx-auto mt-8 gap-6">
-        {coffees?.map((coffee) => (
+        {coffees?.slice(0 - coffeelength)?.map((coffee) => (
           <ProductCart
             key={coffee._id}
             setcoffees={setcoffees}
@@ -33,6 +35,16 @@ const OurPopularProduct = () => {
             coffees={coffees}
           ></ProductCart>
         ))}
+      </div>
+      <div className="text-center mt-8">
+        <button
+          onClick={() => setcoffeelength(coffees.length)}
+          className={`text-white bg-blue-500 px-4 py-2 font-semibold rounded-md ${
+            coffeelength === coffees.length && "hidden"
+          }`}
+        >
+          Show All Product
+        </button>
       </div>
     </div>
   );

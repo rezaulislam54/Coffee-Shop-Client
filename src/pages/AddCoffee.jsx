@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { BiSolidAlarmAdd } from "react-icons/bi";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthContexProvider";
 // import { GoArrowLeft } from "react-icons/go";
 
 const AddCoffee = () => {
+  const { user } = useContext(AuthContext);
   const handleAddCoffee = (e) => {
     e.preventDefault();
 
@@ -14,9 +17,11 @@ const AddCoffee = () => {
     const Photo = e.target.image.value;
     const taste = e.target.taste.value;
     const price = e.target.price.value;
+    const email = user.email;
 
     const coffee = {
       name,
+      email,
       quantity,
       supplier,
       category,
