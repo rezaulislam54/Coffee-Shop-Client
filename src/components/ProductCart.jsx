@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthContexProvider";
 
 const ProductCart = ({ coffee, delatable, items, setitems }) => {
   const { _id, name, quantity, supplier, price, Photo } = coffee;
@@ -33,6 +35,34 @@ const ProductCart = ({ coffee, delatable, items, setitems }) => {
           });
       }
     });
+  };
+
+  const { user } = useContext(AuthContext);
+  const email = user?.email;
+
+  const handleAddToCard = (name, quantity, supplier, price, Photo, email) => {
+    const info = { name, quantity, supplier, price, Photo, email };
+    console.log(info);
+
+    fetch("http://localhost:5000/myCarts", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(info),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Product Add to Cart Successfully!",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        }
+      });
   };
 
   return (
@@ -72,7 +102,21 @@ const ProductCart = ({ coffee, delatable, items, setitems }) => {
                 Delete
               </button>
             ) : (
-              <button className="btn join-item btn-accent">Add</button>
+              <button
+                onClick={() =>
+                  handleAddToCard(
+                    coffee.name,
+                    coffee.quantity,
+                    coffee.supplier,
+                    coffee.price,
+                    coffee.Photo,
+                    email
+                  )
+                }
+                className="btn join-item btn-accent"
+              >
+                Add
+              </button>
             )}
           </div>
         </div>

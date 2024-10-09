@@ -13,6 +13,7 @@ import RegisterPage from "./pages/RegisterPage.jsx";
 import PrivateRoutes from "./priveteRoutes/PrivateRoutes.jsx";
 import MyAddedCoffee from "./pages/MyAddedCoffee.jsx";
 import { Toaster } from "react-hot-toast";
+import MyCart from "./pages/MyCart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
             <MyAddedCoffee></MyAddedCoffee>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/mycart",
+        element: <MyCart></MyCart>,
       },
     ],
   },

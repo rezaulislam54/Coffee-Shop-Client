@@ -70,8 +70,8 @@ const Navbar = () => {
           <a>My Added</a>
         </li>
       </NavLink>
-      {/* <NavLink
-        to={""}
+      <NavLink
+        to={"/mycart"}
         className={({ isActive, isPending }) =>
           isPending ? (
             <Spinar></Spinar>
@@ -85,7 +85,7 @@ const Navbar = () => {
         <li>
           <a>My Cart</a>
         </li>
-      </NavLink> */}
+      </NavLink>
     </>
   );
   return (
