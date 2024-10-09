@@ -1,10 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Spinar from "../components/Spinar";
 
 const MainLayout = () => {
+  const navigation = useNavigation();
+  if (navigation.state === "loading") return <Spinar />;
   return (
-    <div>
+    <div className="bg-white">
       <div className="container mx-auto">
         <Navbar></Navbar>
         <Outlet></Outlet>

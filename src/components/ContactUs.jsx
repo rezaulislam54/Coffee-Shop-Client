@@ -1,5 +1,6 @@
 import { FaFacebookF, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const ContactUs = () => {
   return (
@@ -56,18 +57,26 @@ const ContactUs = () => {
             </div>
 
             <div className=" lg:flex items-center gap-4 mt-10">
-              <div className="flex justify-center items-center px-3 gap-2 py-2 shadow-lg rounded-lg border mb-5 border-[#B2B5C4]">
+              <Link
+                to={"https://www.facebook.com/mdrezaul.rezaulislam.5"}
+                target="blank"
+                className="flex justify-center items-center px-3 gap-2 py-2 shadow-lg rounded-lg border mb-5 border-[#B2B5C4]"
+              >
                 <FaFacebookF />
                 <h3>Facebook</h3>
-              </div>
+              </Link>
               <div className="flex justify-center items-center px-5 gap-2 py-2 shadow-lg rounded-lg border mb-5 border-[#B2B5C4]">
                 <FcGoogle />
                 <h3>Google</h3>
               </div>
-              <div className="flex justify-center items-center px-6 gap-2 py-2 shadow-lg rounded-lg border mb-5 border-[#B2B5C4]">
+              <Link
+                to={"https://github.com/rezaulislam54"}
+                target="blank"
+                className="flex justify-center items-center px-6 gap-2 py-2 shadow-lg rounded-lg border mb-5 border-[#B2B5C4]"
+              >
                 <FaGithub />
                 <h3>Github</h3>
-              </div>
+              </Link>
             </div>
           </div>
           <form

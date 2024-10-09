@@ -11,6 +11,7 @@ import AuthContexProvider from "./provider/AuthContexProvider.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import PrivateRoutes from "./priveteRoutes/PrivateRoutes.jsx";
+import MyAddedCoffee from "./pages/MyAddedCoffee.jsx";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,14 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <RegisterPage></RegisterPage>,
+      },
+      {
+        path: "/myadded",
+        element: (
+          <PrivateRoutes>
+            <MyAddedCoffee></MyAddedCoffee>
+          </PrivateRoutes>
+        ),
       },
     ],
   },

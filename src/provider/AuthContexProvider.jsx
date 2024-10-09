@@ -13,6 +13,7 @@ import auth from "../firebase/Firebase.config";
 export const AuthContext = createContext(null);
 
 const AuthContexProvider = ({ children }) => {
+  const [products, setproducts] = useState([]);
   const [user, setuser] = useState();
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -48,6 +49,8 @@ const AuthContexProvider = ({ children }) => {
   }, []);
 
   const Info = {
+    products,
+    setproducts,
     user,
     createUser,
     githubLogin,

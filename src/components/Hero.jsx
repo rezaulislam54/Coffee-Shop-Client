@@ -22,7 +22,7 @@ const Hero = () => {
         {/* slide 1 */}
         <SwiperSlide>
           <div
-            className="hero md:min-h-[500px]"
+            className="hero bg-cover h-[300px] md:min-h-[500px]"
             style={{
               backgroundImage:
                 "url(https://res.cloudinary.com/dvp64j4a3/image/upload/v1728108124/6_g5xokq.jpg)",
@@ -49,7 +49,7 @@ const Hero = () => {
         {/* slide 2 */}
         <SwiperSlide>
           <div
-            className="hero bg-cover min-h-[500px]"
+            className="hero bg-cover h-[300px] md:min-h-[500px]"
             style={{
               backgroundImage:
                 "url(https://res.cloudinary.com/dvp64j4a3/image/upload/v1728194633/coffee-shop-aesthetic-mhbo1vdkdug7tr1u_gl3gyh.jpg)",
@@ -77,7 +77,7 @@ const Hero = () => {
         {/* slide 3 */}
         <SwiperSlide>
           <div
-            className="hero min-h-[500px]"
+            className="hero bg-cover h-[300px] md:min-h-[500px]"
             style={{
               backgroundImage:
                 "url(https://res.cloudinary.com/dvp64j4a3/image/upload/v1728193834/ai-generated-an-aesthetic-studihoto_mtmh8i.jpg)",
@@ -105,7 +105,7 @@ const Hero = () => {
         {/* slide 4 */}
         <SwiperSlide>
           <div
-            className="hero min-h-[500px]"
+            className="hero bg-cover h-[300px] md:min-h-[500px]"
             style={{
               backgroundImage:
                 "url(https://res.cloudinary.com/dvp64j4a3/image/upload/v1728103053/3_hnl4xc.png)",
@@ -132,7 +132,7 @@ const Hero = () => {
         {/* slide 5 */}
         <SwiperSlide>
           <div
-            className="hero min-h-[500px]"
+            className="hero bg-cover h-[300px] md:min-h-[500px]"
             style={{
               backgroundImage:
                 "url(https://res.cloudinary.com/dvp64j4a3/image/upload/v1728194822/cozy-coffee-shop-steaming-coffee-open_maiwqt.jpg)",

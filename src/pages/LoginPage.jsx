@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/signIn.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthContexProvider";
@@ -8,6 +8,10 @@ const LoginPage = () => {
   const { emailAndPasswordLogin, githubLogin, googleLogin } =
     useContext(AuthContext);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log(location.state);
   const handleSignIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -39,6 +43,7 @@ const LoginPage = () => {
     googleLogin()
       .then((result) => {
         console.log(result.user);
+        navigate(location?.state ? location.state : "/");
         Swal.fire({
           title: "Success!",
           text: "User Login Successfully!",
@@ -60,6 +65,7 @@ const LoginPage = () => {
     e.preventDefault();
     githubLogin()
       .then((result) => {
+        navigate(location?.state ? location.state : "/");
         console.log(result.user);
         Swal.fire({
           title: "Success!",
@@ -78,7 +84,6 @@ const LoginPage = () => {
       });
   };
 
-  // const navigate = useNavigate();
   return (
     <div className="container mx-auto pb-10">
       {/* {loading && <Spinner />} */}

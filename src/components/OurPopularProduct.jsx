@@ -1,11 +1,14 @@
 import { Link, useLoaderData } from "react-router-dom";
 import ProductCart from "./ProductCart";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../provider/AuthContexProvider";
 
 const OurPopularProduct = () => {
+  const { setproducts } = useContext(AuthContext);
   const loadedCoffees = useLoaderData();
 
   const [coffees, setcoffees] = useState(loadedCoffees);
+  setproducts(coffees);
   const [coffeelength, setcoffeelength] = useState(6);
 
   return (
