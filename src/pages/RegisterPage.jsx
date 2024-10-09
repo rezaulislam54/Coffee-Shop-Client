@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/signUp.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthContexProvider";
 import Swal from "sweetalert2";
 
 const RegisterPage = () => {
-  const { createUser, googleLogin } = useContext(AuthContext);
+  const { createUser, setLoading, googleLogin, updateUserProfile } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -19,12 +22,26 @@ const RegisterPage = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
-        Swal.fire({
-          title: "Success!",
-          text: "Acount Created Successfully!",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
+        updateUserProfile({ displayName: name, photoURL: image })
+          .then(() => {
+            setLoading(false);
+            navigate(location?.state ? location.state : "/");
+            Swal.fire({
+              title: "Success!",
+              text: "Acount Created Successfully!",
+              icon: "success",
+              confirmButtonText: "Ok",
+            });
+          })
+          .catch((err) => {
+            setLoading(false);
+            Swal.fire({
+              title: "error!",
+              text: err.message,
+              icon: "error",
+              confirmButtonText: "Ok",
+            });
+          });
       })
       .catch((error) => {
         Swal.fire({

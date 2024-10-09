@@ -28,7 +28,7 @@ const Navbar = () => {
           isPending ? (
             <Spinar></Spinar>
           ) : isActive ? (
-            "text-primary font-semibold border-b-2 border-[#FF497C]"
+            "text-primary font-semibold md:border-b-2 border-[#FF497C]"
           ) : (
             "font-semibold"
           )
@@ -44,7 +44,7 @@ const Navbar = () => {
           isPending ? (
             <Spinar></Spinar>
           ) : isActive ? (
-            "text-primary font-semibold border-b-2 border-[#FF497C]"
+            "text-primary font-semibold md:border-b-2 border-[#FF497C]"
           ) : (
             "font-semibold"
           )
@@ -60,7 +60,7 @@ const Navbar = () => {
           isPending ? (
             <Spinar></Spinar>
           ) : isActive ? (
-            "text-primary border-b-2 border-[#FF497C]"
+            "text-primary md:border-b-2 border-[#FF497C]"
           ) : (
             "font-semibold"
           )
@@ -76,7 +76,7 @@ const Navbar = () => {
           isPending ? (
             <Spinar></Spinar>
           ) : isActive ? (
-            "text-primary font-semibold border-b-2 border-[#FF497C]"
+            "text-primary font-semibold md:border-b-2 border-[#FF497C]"
           ) : (
             "font-semibold"
           )
@@ -114,7 +114,14 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
-                <img alt="" src={user?.photoURL} />
+                {user.photoURL ? (
+                  <img alt="" src={user?.photoURL} />
+                ) : (
+                  <img
+                    alt=""
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  />
+                )}
               </div>
             </div>
             <ul
@@ -169,7 +176,11 @@ const Navbar = () => {
               className="btn btn-ghost btn-circle avatar mx-auto my-2"
             >
               <div className="w-10 rounded-full">
-                <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
+                {user?.photoURL ? (
+                  <img src={user?.photoURL} />
+                ) : (
+                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                )}
               </div>
             </div>
             <h1 className="text-center">

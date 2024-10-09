@@ -1,11 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthContexProvider";
 import ProductCart from "../components/ProductCart";
-import { useNavigation } from "react-router-dom";
-import Spinar from "../components/Spinar";
 
 const MyAddedCoffee = () => {
-  const navigation = useNavigation();
   const { user } = useContext(AuthContext);
   const [products, setproducts] = useState([]);
   const [items, setitems] = useState([]);
@@ -23,7 +20,6 @@ const MyAddedCoffee = () => {
     setitems(result);
   }, [products, user]);
 
-  if (navigation.state === "loading") return <Spinar />;
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 mt-8 gap-6 my-9">
       {items?.map((b) => (

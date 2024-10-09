@@ -1,13 +1,14 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/signIn.jpg";
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { AuthContext } from "../provider/AuthContexProvider";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const LoginPage = () => {
-  const { emailAndPasswordLogin, githubLogin, googleLogin } =
+  const { emailAndPasswordLogin, githubLogin, googleLogin, ResetPassword } =
     useContext(AuthContext);
-
+  const emailRef = useRef();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -20,6 +21,7 @@ const LoginPage = () => {
 
     emailAndPasswordLogin(email, password)
       .then((result) => {
+        navigate(location?.state ? location.state : "/");
         Swal.fire({
           title: "Success!",
           text: "User Login Successfully!",
@@ -35,6 +37,25 @@ const LoginPage = () => {
           icon: "error",
           confirmButtonText: "Ok",
         });
+      });
+  };
+
+  const handlePasswordReset = () => {
+    const email = emailRef.current.value;
+    if (!email) {
+      return toast.error("Please Provide Your Email");
+    } else if (
+      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
+    ) {
+      toast("Provide a Valide email");
+      return;
+    }
+    ResetPassword(email)
+      .then(() => {
+        alert("Please Checke Your Email");
+      })
+      .catch((error) => {
+        toast.error(error.message);
       });
   };
 
@@ -184,6 +205,7 @@ const LoginPage = () => {
                     <input
                       type="email"
                       name="email"
+                      ref={emailRef}
                       id=""
                       placeholder="Email"
                       className="px-4 py-1 w-full focus:outline-0"
@@ -203,6 +225,15 @@ const LoginPage = () => {
                       className="px-4 py-1 w-full focus:outline-0"
                     />
                   </fieldset>
+
+                  <label className="label mt-1">
+                    <a
+                      onClick={handlePasswordReset}
+                      className="label-text-alt link link-hover"
+                    >
+                      Forgot password?
+                    </a>
+                  </label>
                 </div>
 
                 <button className="px-3 py-2 bg-[#FF497C] hover:bg-[#ab3154] rounded text-white font-semibold">
