@@ -1,7 +1,26 @@
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthContexProvider";
 
 const CartProduct = ({ product, setmyproducts, myproducts }) => {
-  const { _id, name, quantity, supplier, price, Photo } = product;
+  const { _id, name, supplier, price, Photo } = product;
+
+  const { setquantity, setproprice } = useContext(AuthContext);
+  const [totalquantity, settotalquantity] = useState(1);
+
+  const handlePlese = (e) => {
+    e.preventDefault();
+    settotalquantity(totalquantity + 1);
+  };
+
+  const handleMaines = (e) => {
+    e.preventDefault();
+    settotalquantity(totalquantity - 1);
+  };
+
+  setquantity(totalquantity);
+  const totalprice = price * totalquantity;
+  setproprice(totalprice);
 
   const handleProductDelete = (_id) => {
     Swal.fire({
@@ -51,16 +70,13 @@ const CartProduct = ({ product, setmyproducts, myproducts }) => {
         </div>
       </div>
       <div className="flex ml-4 justify-evenly col-span-4">
-        <h2>
-          <input
-            type="number"
-            defaultValue={quantity}
-            id=""
-            className="w-14 border pl-4 "
-          />
-        </h2>
+        <div className="flex gap-4 text-[16px]">
+          <button onClick={handleMaines}>-</button>
+          <h1>{totalquantity}</h1>
+          <button onClick={handlePlese}>+</button>
+        </div>
         <h2>${price}</h2>
-        <h2>${price}</h2>
+        <h2>${totalprice}</h2>
       </div>
     </div>
   );

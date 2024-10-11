@@ -15,8 +15,10 @@ import auth from "../firebase/Firebase.config";
 export const AuthContext = createContext(null);
 
 const AuthContexProvider = ({ children }) => {
+  const [proprice, setproprice] = useState();
   const [products, setproducts] = useState([]);
   const [loading, setloading] = useState(true);
+  const [authquantity, setquantity] = useState(1);
   const [user, setuser] = useState();
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -68,6 +70,10 @@ const AuthContexProvider = ({ children }) => {
   }, []);
 
   const Info = {
+    proprice,
+    setproprice,
+    setquantity,
+    authquantity,
     products,
     updateUserProfile,
     ResetPassword,

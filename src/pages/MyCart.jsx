@@ -3,16 +3,34 @@ import CartProduct from "../components/CartProduct";
 import { AuthContext } from "../provider/AuthContexProvider";
 
 const MyCart = () => {
-  const { user } = useContext(AuthContext);
+  const { user, authquantity } = useContext(AuthContext);
   const [myproducts, setmyproducts] = useState([]);
-  const url = `http://localhost:5000/myCarts/${user.email}`;
+  const url = `http://localhost:5000/myCarts/${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setmyproducts(data);
       });
-  }, []);
+  }, [user]);
+
+  let totalPrice = 0;
+  let totalShipping = 0;
+  let quantity = 0;
+  for (const product of myproducts) {
+    // if(product.quantity === 0){
+    //     product.quantity = 1;
+    // }
+    // product.quantity = product.quantity || 1;
+
+    totalPrice = totalPrice + product.price * product.quantity;
+    totalShipping = totalShipping + product.shipping;
+    quantity = quantity + authquantity;
+  }
+  const tax = (totalPrice * 7) / 100;
+
+  const grandTotal = totalPrice + totalShipping + tax;
+
 
   return (
     <div className="my-10">
