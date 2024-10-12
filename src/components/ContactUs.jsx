@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ContactUs = () => {
   return (
-    <div className="my-10 bg-[#F5F4F1]">
+    <div className="my-10 bg-[#F5F4F1] rounded-lg">
       <div className="text-center pt-6">
         <h2 className="text-3xl font-medium my-2 ">Connect with Us</h2>
       </div>
