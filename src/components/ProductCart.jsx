@@ -17,7 +17,7 @@ const ProductCart = ({ coffee, delatable, items, setitems }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/coffees/${_id}`, {
+        fetch(`https://coffee-shop-server-jd3g.onrender.com/coffees/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -44,7 +44,7 @@ const ProductCart = ({ coffee, delatable, items, setitems }) => {
     const info = { name, quantity, supplier, price, Photo, email };
     console.log(info);
 
-    fetch("http://localhost:5000/myCarts", {
+    fetch("https://coffee-shop-server-jd3g.onrender.com/myCarts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

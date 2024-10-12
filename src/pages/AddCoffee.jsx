@@ -32,7 +32,7 @@ const AddCoffee = () => {
     };
     // console.log(coffee);
 
-    fetch("http://localhost:5000/coffees", {
+    fetch("https://coffee-shop-server-jd3g.onrender.com/coffees", {
       method: "POST",
       headers: {
         "content-type": "application/json",

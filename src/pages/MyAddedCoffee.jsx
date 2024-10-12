@@ -6,7 +6,7 @@ const MyAddedCoffee = () => {
   const { user } = useContext(AuthContext);
   const [products, setproducts] = useState([]);
   const [items, setitems] = useState([]);
-  const url = `http://localhost:5000/coffees?email=${user.email}`;
+  const url = `https://coffee-shop-server-jd3g.onrender.com/coffees?email=${user.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())

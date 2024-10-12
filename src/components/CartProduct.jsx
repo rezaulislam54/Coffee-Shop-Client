@@ -33,7 +33,7 @@ const CartProduct = ({ product, setmyproducts, myproducts }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/myCarts/${_id}`, {
+        fetch(`https://coffee-shop-server-jd3g.onrender.com/myCarts/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

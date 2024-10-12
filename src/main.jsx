@@ -23,7 +23,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Hompage></Hompage>,
-        loader: () => fetch("http://localhost:5000/coffees"),
+        loader: () =>
+          fetch("https://coffee-shop-server-jd3g.onrender.com/coffees"),
       },
       {
         path: "/add-coffe",
@@ -41,13 +42,17 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/coffees/${params.id}`),
+          fetch(
+            `https://coffee-shop-server-jd3g.onrender.com/coffees/${params.id}`
+          ),
       },
       {
         path: "/viewdetails/:id",
         element: <ViewDetails></ViewDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/coffees/${params.id}`),
+          fetch(
+            `https://coffee-shop-server-jd3g.onrender.com/coffees/${params.id}`
+          ),
       },
       {
         path: "/login",

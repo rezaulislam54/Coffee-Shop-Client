@@ -5,7 +5,7 @@ import { AuthContext } from "../provider/AuthContexProvider";
 const MyCart = () => {
   const { user, authquantity } = useContext(AuthContext);
   const [myproducts, setmyproducts] = useState([]);
-  const url = `http://localhost:5000/myCarts/${user?.email}`;
+  const url = `https://coffee-shop-server-jd3g.onrender.com/myCarts/${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -33,7 +33,7 @@ const MyCart = () => {
 
   return (
     <div className="my-10">
-      <div className="grid grid-cols-1 lg:grid-cols-4 border px-3 md:px-0 shadow-lg">
+      <div className="grid grid-cols-1 lg:grid-cols-4 border rounded-lg px-3 md:px-0 shadow-lg">
         <div className="col-span-3 md:p-6 ">
           <div className="flex justify-between md:mx-10 pb-3 border-b-2">
             <h1 className="text-2xl font-bold">Your Cart</h1>
@@ -65,7 +65,7 @@ const MyCart = () => {
           </div>
         </div>
 
-        <div className=" p-6 border-l-2 rounded-lg">
+        <div className=" p-6 md:border-l-2 rounded-lg">
           <h1 className="text-2xl font-bold border-b-2 pb-3">Order Summary</h1>
           <div className="flex justify-between items-center my-7">
             <h2>
@@ -74,20 +74,21 @@ const MyCart = () => {
             <h2>{totalPrice} </h2>
           </div>
           <label htmlFor="">SHIPPING</label>
-          <select className="select select-bordered select-sm w-full max-w-xs mt-2">
+          <br />
+          <select className="select select-bordered select-sm w-full mt-2">
             <option disabled selected>
               standard Shipping - $10.00
             </option>
           </select>
-
-          <div className="my-7 space-y-2">
+          <div className="my-8 space-y-2">
             <label htmlFor="" className="mt-5">
               PROMO CODE
             </label>
+            <br />
             <input
               type="text"
               placeholder="Enter Your Code"
-              className="input input-bordered input-sm w-full max-w-xs"
+              className="input input-bordered input-sm w-full"
             />
           </div>
           <button className="bg-[#ff487c] px-8 py-2 rounded-md text-white">

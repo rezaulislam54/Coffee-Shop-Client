@@ -28,13 +28,16 @@ const UpdateCoffee = () => {
       Photo,
     };
 
-    fetch(`http://localhost:5000/coffees/${loadeddata._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(coffee),
-    })
+    fetch(
+      `https://coffee-shop-server-jd3g.onrender.com/coffees/${loadeddata._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(coffee),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {

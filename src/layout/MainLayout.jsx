@@ -8,7 +8,7 @@ const MainLayout = () => {
   if (navigation.state === "loading") return <Spinar />;
   return (
     <div className="bg-white">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-5 md:px-10">
         <Navbar></Navbar>
         <Outlet></Outlet>
       </div>
