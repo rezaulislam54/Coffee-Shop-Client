@@ -23,14 +23,13 @@ const MyCart = () => {
     // }
     // product.quantity = product.quantity || 1;
 
-    totalPrice = totalPrice + product.price * product.quantity;
+    totalPrice = totalPrice + product.price * authquantity;
     totalShipping = totalShipping + product.shipping;
     quantity = quantity + authquantity;
   }
   const tax = (totalPrice * 7) / 100;
 
   const grandTotal = totalPrice + totalShipping + tax;
-
 
   return (
     <div className="my-10">
@@ -72,7 +71,7 @@ const MyCart = () => {
             <h2>
               <span className="mr-2">{myproducts.length}</span>ITEMS{" "}
             </h2>
-            <h2>PRICE </h2>
+            <h2>{totalPrice} </h2>
           </div>
           <label htmlFor="">SHIPPING</label>
           <select className="select select-bordered select-sm w-full max-w-xs mt-2">
@@ -97,7 +96,7 @@ const MyCart = () => {
           <div className="divider"></div>
           <div className="flex justify-between items-center font-semibold my-6">
             <h2>TOTAL COST </h2>
-            <h2>$10.00 </h2>
+            <h2>${totalPrice} </h2>
           </div>
           <button className="bg-[#ff487c] w-full text-center py-2 rounded-md mb-2 text-white">
             CHECHOUT
