@@ -1,6 +1,6 @@
 const Sponser = () => {
   return (
-    <div className="bg-[rgb(236,234,227)]">
+    <div className="bg-[rgb(236,234,227)] rounded-lg">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 p-10 rounded-lg justify-around">
         <div className="bg-white shadow-lg p-3 rounded-lg space-y-2">
           <img

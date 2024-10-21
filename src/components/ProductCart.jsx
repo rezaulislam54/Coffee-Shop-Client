@@ -67,8 +67,8 @@ const ProductCart = ({ coffee, delatable, items, setitems }) => {
 
   return (
     <div className="bg-[#F5F4F1] p-8 shadow-lg rounded-lg border">
-      <div className="flex gap-8 items-center">
-        <img className="size-48" src={Photo} />
+      <div className="flex gap-3 md:gap-8 items-center">
+        <img className="size-32 md:size-48" src={Photo} />
         <div className="flex justify-between items-center w-full">
           <div>
             <h2>

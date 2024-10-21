@@ -5,18 +5,18 @@ const ViewDetails = () => {
   const { Photo, name, supplier, price, quantity } = coffee;
 
   return (
-    <div className="my-20 flex gap-5">
-      <div>
+    <div className="container mx-auto my-10 md:my-20 flex gap-5">
+      <div className="hidden md:block">
         <img
           className="h-72 w-52"
           src="https://res.cloudinary.com/dvp64j4a3/image/upload/v1728233589/5_samixw.png"
           alt=""
         />
       </div>
-      <div className="bg-[#F5F4F1] w-1/2 mx-auto h-fit p-8 shadow-lg rounded-lg border">
-        <div className="flex gap-32 items-center">
+      <div className="bg-[#F5F4F1] w-full lg:w-1/2 mx-auto h-fit p-8 shadow-lg rounded-lg border">
+        <div className="md:flex gap-20 lg:gap-32 items-center">
           <img className="size-48" src={Photo} />
-          <div className="space-y-1">
+          <div className="space-y-1 mt-5 md:mt-0">
             <h1 className="text-xl font-bold">Niceties</h1>
             <p>
               <span className="font-semibold mr-2">Name:</span> {name}
@@ -35,9 +35,9 @@ const ViewDetails = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="hidden md:block">
         <img
-          className="h-72 w-52"
+          className="h-72 w-52 hidden md:block"
           src="https://res.cloudinary.com/dvp64j4a3/image/upload/v1728233588/4_ew1b9v.png"
           alt=""
         />

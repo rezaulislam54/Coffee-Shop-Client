@@ -9,7 +9,7 @@ const Footer = () => {
             alt=""
           />
           <h1 className="text-xl font-extrabold">Online Coffee Shop</h1>
-          <p className="w-96">
+          <p className="md:w-96">
             Always ready to be your friend. Come & Contact with us to share your
             memorable moments, to share with your best companion.
           </p>
