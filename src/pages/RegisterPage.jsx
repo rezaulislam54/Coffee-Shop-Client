@@ -22,16 +22,15 @@ const RegisterPage = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
+        Swal.fire({
+          title: "Success!",
+          text: "Acount Created Successfully!",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
         updateUserProfile({ displayName: name, photoURL: image })
           .then(() => {
-            setLoading(false);
             navigate(location?.state ? location.state : "/");
-            Swal.fire({
-              title: "Success!",
-              text: "Acount Created Successfully!",
-              icon: "success",
-              confirmButtonText: "Ok",
-            });
           })
           .catch((err) => {
             setLoading(false);
