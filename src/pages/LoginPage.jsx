@@ -124,8 +124,8 @@ const LoginPage = () => {
             </p>
           </div>
 
-          <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-            <div className=" p-5 ">
+          <div className="w-full lg:w-1/2 bg-white p-4 md:p-5 rounded-lg lg:rounded-l-none">
+            <div className=" md:p-5 ">
               <div className="pb-8 flex justify-between">
                 <div>
                   <p className="text-3xl font-bold mb-2">Sign in</p>

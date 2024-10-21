@@ -96,8 +96,8 @@ const RegisterPage = () => {
               </p>
             </div>
 
-            <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-              <div className=" p-5 ">
+            <div className="w-full lg:w-1/2 bg-white md:p-5 rounded-lg lg:rounded-l-none">
+              <div className=" md:p-5 ">
                 <div className="pb-8 flex justify-between">
                   <div>
                     <p className="text-3xl font-bold mb-2">I&apos;m New Here</p>
@@ -108,7 +108,7 @@ const RegisterPage = () => {
                   </div>
 
                   <div>
-                    Already a member?
+                    Already member?
                     <Link
                       className="px-3 ml-3 py-2 bg-[#FF497C] hover:bg-[#ab3154] rounded text-white font-semibold"
                       to="/login"
