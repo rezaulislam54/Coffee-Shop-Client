@@ -115,7 +115,7 @@ const ProductCart = ({ coffee, delatable, items, setitems }) => {
                 }
                 className="btn join-item btn-accent"
               >
-                Add
+                Cart
               </button>
             )}
           </div>

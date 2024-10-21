@@ -38,6 +38,24 @@ const Navbar = () => {
           <a>Home</a>
         </li>
       </NavLink>
+
+      <NavLink
+        to={"/shope"}
+        className={({ isActive, isPending }) =>
+          isPending ? (
+            <Spinar></Spinar>
+          ) : isActive ? (
+            "text-primary font-semibold md:border-b-2 border-[#FF497C]"
+          ) : (
+            "font-semibold"
+          )
+        }
+      >
+        <li>
+          <a>Shope</a>
+        </li>
+      </NavLink>
+
       <NavLink
         to={"/add-coffe"}
         className={({ isActive, isPending }) =>
@@ -54,38 +72,42 @@ const Navbar = () => {
           <a>Add Coffee</a>
         </li>
       </NavLink>
-      <NavLink
-        to={"/myadded"}
-        className={({ isActive, isPending }) =>
-          isPending ? (
-            <Spinar></Spinar>
-          ) : isActive ? (
-            "text-primary md:border-b-2 border-[#FF497C]"
-          ) : (
-            "font-semibold"
-          )
-        }
-      >
-        <li>
-          <a>My Added</a>
-        </li>
-      </NavLink>
-      <NavLink
-        to={"/mycart"}
-        className={({ isActive, isPending }) =>
-          isPending ? (
-            <Spinar></Spinar>
-          ) : isActive ? (
-            "text-primary font-semibold md:border-b-2 border-[#FF497C]"
-          ) : (
-            "font-semibold"
-          )
-        }
-      >
-        <li>
-          <a>My Cart</a>
-        </li>
-      </NavLink>
+      {user && (
+        <>
+          <NavLink
+            to={"/myadded"}
+            className={({ isActive, isPending }) =>
+              isPending ? (
+                <Spinar></Spinar>
+              ) : isActive ? (
+                "text-primary md:border-b-2 border-[#FF497C]"
+              ) : (
+                "font-semibold"
+              )
+            }
+          >
+            <li>
+              <a>My Product</a>
+            </li>
+          </NavLink>
+          <NavLink
+            to={"/mycart"}
+            className={({ isActive, isPending }) =>
+              isPending ? (
+                <Spinar></Spinar>
+              ) : isActive ? (
+                "text-primary font-semibold md:border-b-2 border-[#FF497C]"
+              ) : (
+                "font-semibold"
+              )
+            }
+          >
+            <li>
+              <a>My Cart</a>
+            </li>
+          </NavLink>
+        </>
+      )}
     </>
   );
   return (
@@ -100,7 +122,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal gap-4 font-medium text-[17px]">
+        <ul className="menu menu-horizontal gap-2 font-medium text-[17px]">
           {navlinks}
         </ul>
       </div>

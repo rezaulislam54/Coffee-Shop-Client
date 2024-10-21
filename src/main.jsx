@@ -14,6 +14,7 @@ import PrivateRoutes from "./priveteRoutes/PrivateRoutes.jsx";
 import MyAddedCoffee from "./pages/MyAddedCoffee.jsx";
 import { Toaster } from "react-hot-toast";
 import MyCart from "./pages/MyCart.jsx";
+import ShopePage from "./pages/ShopePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Hompage></Hompage>,
+        loader: () =>
+          fetch("https://coffee-shop-server-jd3g.onrender.com/coffees"),
+      },
+      {
+        path: "/shope",
+        element: (
+          <PrivateRoutes>
+            <ShopePage></ShopePage>
+          </PrivateRoutes>
+        ),
         loader: () =>
           fetch("https://coffee-shop-server-jd3g.onrender.com/coffees"),
       },
