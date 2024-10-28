@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../provider/AuthContexProvider";
 
 const ProductCart = ({ coffee, delatable, items, setitems }) => {
   const { _id, name, quantity, supplier, price, Photo } = coffee;
+  const navigate = useNavigate();
 
   const handleProductDelete = (_id) => {
     Swal.fire({
@@ -44,25 +45,29 @@ const ProductCart = ({ coffee, delatable, items, setitems }) => {
     const info = { name, quantity, supplier, price, Photo, email };
     console.log(info);
 
-    fetch("https://coffee-shop-server-jd3g.onrender.com/myCarts", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(info),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Success!",
-            text: "Product Add to Cart Successfully!",
-            icon: "success",
-            confirmButtonText: "Ok",
-          });
-        }
-      });
+    if (user) {
+      fetch("https://coffee-shop-server-jd3g.onrender.com/myCarts", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(info),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.insertedId) {
+            Swal.fire({
+              title: "Success!",
+              text: "Product Add to Cart Successfully!",
+              icon: "success",
+              confirmButtonText: "Ok",
+            });
+          }
+        });
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
